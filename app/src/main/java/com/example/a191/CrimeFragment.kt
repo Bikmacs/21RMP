@@ -1,6 +1,7 @@
 package com.example.a191
 
 import Crime
+import android.content.Intent
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
@@ -47,6 +48,7 @@ class CrimeFragment : Fragment() {
             text = crime.date.toString()
             isEnabled = false
             solvedCheckBox = view.findViewById(R.id.crime_solved) as CheckBox
+
         }
         return view
     }
@@ -87,6 +89,11 @@ class CrimeFragment : Fragment() {
         }
         dateButton.setOnClickListener {
             title2.text = titleField.text.toString()
+            android.os.Handler().postDelayed({
+                val Intent = Intent(context, floating_screen::class.java)
+                startActivity(Intent)
+            },3000)
+
         }
     }
 }
